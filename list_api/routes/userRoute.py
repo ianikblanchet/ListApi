@@ -30,6 +30,10 @@ def get_db():
         db.close()
 
 
+@router.get("/createtable/")
+def create_table():
+    Base.metadata.create_all(engine)
+    return {"message":"table created"}
 
 @router.get("/users/", response_model=List[schemas.User])
 def read_users(db: Session = Depends(get_db)):
@@ -52,6 +56,7 @@ def create_user(user: schemas.BaseUser, db: Session = Depends(get_db)):
     #if db_user:
         #raise HTTPException(status_code=400, detail="Email already registered")
     return {'message':'employe créé'}
+
 
 
 #Route to login in app

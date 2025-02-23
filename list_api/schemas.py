@@ -54,7 +54,7 @@ class Ing(BaseModel):
     id : int
     name : str
     categorie_id : int
-    categories : Categories
+    unite : str
     inventory : Optional[int]
 
     class Config:
